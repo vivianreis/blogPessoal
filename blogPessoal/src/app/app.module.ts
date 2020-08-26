@@ -8,6 +8,8 @@ import { FooterComponent } from './footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FeedComponent } from './feed/feed.component';
 import { PerfilLateralComponent } from './perfil-lateral/perfil-lateral.component';
+import { AppRoutingModule } from './app-routing.module';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { PerfilLateralComponent } from './perfil-lateral/perfil-lateral.componen
   ],
   imports: [
     BrowserModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
