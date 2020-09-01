@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Postagem } from '../model/Postagem';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +12,7 @@ export class PostagemService {
     headers: new HttpHeaders().set('Authorization', localStorage.getItem('token'))
   }
 
-  getAllPostagens() {
-    return this.http.get('http://localhost:9000/postagens', this.token)
+  getAllPostagens(){
+    return this.http.get('http://localhost:8080/postagens', this.token)
   }
-
 }
