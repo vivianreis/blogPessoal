@@ -1,6 +1,7 @@
+import { AlertasService } from './../service/alertas.service';
+import { AuthService } from './../service/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from '../model/Usuario';
-import { AuthService } from '../service/auth.service';
+import { User } from '../model/User';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,33 +11,32 @@ import { Router } from '@angular/router';
 })
 export class CadastroComponent implements OnInit {
 
-  usuario: Usuario = new Usuario();
-  senha: string;
+  user: User = new User()
+  senha: string
 
   constructor(
     private authService: AuthService,
-    private router: Router
-
-  ) {}
+    private router: Router,
+    private alerta: AlertasService
+  ) { }
 
   ngOnInit() {
   }
 
-  conferirSenha(event: any){
-    this.senha = event.target.value;
-
+  conferirSenha(event: any) {
+    this.senha = event.target.value
   }
 
-  cadastrar(){
-     if(this.senha === this.usuario.senha ){
-      this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
-        this.usuario = resp
+  cadastrar() {
+    if ( this.senha === this.user.senha ) {
+      this.authService.cadastrar(this.user).subscribe((resp: User) => {
+        this.user = resp
         this.router.navigate(['/login'])
-        alert('Usuário cadastrado com sucesso! ')
-     })} else {
-       alert('Suas senhas não conferem')
-
+        this.alerta.showAlertSuccess('Usuário cadastrado com sucesso!')
+      })
+    } else {
+      this.alerta.showAlertDanger('Suas senhas não conferem')
     }
   }
-}
 
+}

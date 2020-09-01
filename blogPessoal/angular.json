@@ -94,11 +94,8 @@
             ],
             "styles": [
               "src/styles.css"
-              
             ],
-            "scripts": [
-             
-            ]
+            "scripts": []
           }
         },
         "lint": {
@@ -127,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "blogPessoal"
+    }
+  },
+  "defaultProject": "blogPessoal",
+  "cli": {
+    "analytics": "72fdfb59-e2b5-467b-ab06-2d932751c90c"
+  }
 }

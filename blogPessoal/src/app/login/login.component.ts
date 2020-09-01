@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { UsuarioLogin } from '../model/UsuarioLogin';
-import { AuthService } from '../service/auth.service';
+import { UserLogin } from './../model/UserLogin';
 import { Router } from '@angular/router';
+import { AuthService } from './../service/auth.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  usuarioLogin: UsuarioLogin = new UsuarioLogin();
+  userLogin: UserLogin = new UserLogin()
 
   constructor(
     private authService: AuthService,
@@ -20,11 +20,12 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  entrar(){
-    this.authService.logar(this.usuarioLogin).subscribe((resp: UsuarioLogin) => {
-      this.usuarioLogin = resp;
-      localStorage.setItem('token', this.usuarioLogin.token)
+  entrar() {
+    this.authService.logar(this.userLogin).subscribe((resp: UserLogin) => {
+      this.userLogin = resp
+      localStorage.setItem('token', this.userLogin.token)
       this.router.navigate(['/feed'])
-    } )
+    })
   }
+
 }
