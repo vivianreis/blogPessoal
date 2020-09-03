@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Postagem } from '../model/Postagem';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,16 @@ export class PostagemService {
     return this.http.get('http://localhost:8080/postagens', this.token)
   }
 
-  postPostagem(){
-    return this.http.post('http://localhost:8080/postagens', this.token)
+  getByIdPostagem(id: number){
+    return this.http.get(`http://localhost:9000/tema/${id}`, this.token)
   }
+
+  postPostagem(postagem: Postagem){
+    return this.http.post('http://localhost:8080/postagens', postagem, this.token)
+  }
+
+  putPostagem(postagem: Postagem){
+    return this.http.put('http://localhost:8080/postagens', postagem, this.token)
+  }
+    
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TemaService } from '../service/tema.service';
 import { Tema } from '../model/Tema';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-tema',
@@ -10,10 +11,11 @@ import { Tema } from '../model/Tema';
 export class PostTemaComponent implements OnInit {
 
   tema: Tema = new Tema()
-  listaTemas: Tema
+  listaTemas: Tema[]
 
   constructor(
-    private temaService: TemaService
+    private temaService: TemaService,
+    private router: Router
   ) { }
 
   ngOnInit() {

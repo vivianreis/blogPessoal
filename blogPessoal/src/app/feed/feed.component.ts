@@ -3,6 +3,7 @@ import { Postagem } from '../model/Postagem';
 import { Tema } from '../model/Tema';
 import { PostagemService } from '../service/postagem.service';
 import { TemaService } from '../service/tema.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-feed',
@@ -23,7 +24,8 @@ export class FeedComponent implements OnInit {
   
   constructor(
     private postagemService: PostagemService,
-    private temaService: TemaService
+    private temaService: TemaService,
+    private router: Router
   ) { }
 
   ngOnInit(){
