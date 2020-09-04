@@ -24,7 +24,7 @@ export class PutTemaComponent implements OnInit {
     this.findByIdTema(id);
   }
 
-  findByIdTema(){
+  findByIdTema(id: number){
     this.temaService.getByIdTema(this.tema.id).subscribe((resp: Tema) => {
       this.tema = resp
     })

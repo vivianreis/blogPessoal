@@ -33,5 +33,4 @@ export class TemaService {
     return this.http.delete(`http://localhost:9000/tema/${id}`, this.token)
   }
 
-
 }
